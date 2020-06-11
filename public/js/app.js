@@ -12,15 +12,13 @@ weatherForm.addEventListener('submit', (e) => {
     messageTwo.textContent = ''
     
 
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+    fetch('/weather?address=' + location).then((response) => {
     response.json().then((data) => {
         if(data.error) {
             messageOne.textContent = data.error
         } else {
             messageOne.textContent = data.location + ' has ' + data.weather;
             messageTwo.textContent = 'Current temperature is ' + data.temperature + ' degree Celsius with humidity level ' + data.humidity + ' %'
-            // console.log(data.location, data.weather)
-            // console.log(data.humidity, data.temperature)
         }
     })
 })
