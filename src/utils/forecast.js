@@ -7,7 +7,7 @@ const forecast = (address, callback) => {
         if (error) {
             callback('Unable to connect with location services!', undefined)
         } else if (body.cod == '404') {
-            callback('Unable to find location', undefined)
+            callback('Unable to find location. Try with another one!', undefined)
         } else {         
             callback(undefined, {
                 weather: body.list[0].weather[0].description,
